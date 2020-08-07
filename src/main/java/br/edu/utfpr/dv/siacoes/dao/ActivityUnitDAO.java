@@ -30,15 +30,16 @@ public class ActivityUnitDAO {
 				list.add(this.loadObject(rs));
 			}
 			
-			return list;
-		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
+			
 		}
+		if((rs != null) && !rs.isClosed())
+			rs.close();
+		if((stmt != null) && !stmt.isClosed())
+			stmt.close();
+		if((conn != null) && !conn.isClosed())
+			conn.close();
+			
+		return list;
 	}
 	
 	public ActivityUnit findById(int id) throws SQLException{
@@ -54,18 +55,19 @@ public class ActivityUnitDAO {
 			
 			rs = stmt.executeQuery();
 			
-			if(rs.next()){
-				return this.loadObject(rs);
-			}else{
-				return null;
-			}
-		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
+			
+		}
+		if((rs != null) && !rs.isClosed())
+			rs.close();
+		if((stmt != null) && !stmt.isClosed())
+			stmt.close();
+		if((conn != null) && !conn.isClosed())
+			conn.close();
+			
+		if(rs.next()){
+			return this.loadObject(rs);
+		}else{
+			return null;
 		}
 	}
 	
@@ -106,15 +108,16 @@ public class ActivityUnitDAO {
 				new UpdateEvent(conn).registerUpdate(idUser, unit);
 			}
 			
-			return unit.getIdActivityUnit();
-		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
+			
 		}
+		if((rs != null) && !rs.isClosed())
+			rs.close();
+		if((stmt != null) && !stmt.isClosed())
+			stmt.close();
+		if((conn != null) && !conn.isClosed())
+			conn.close();
+
+		return unit.getIdActivityUnit();
 	}
 	
 	private ActivityUnit loadObject(ResultSet rs) throws SQLException{

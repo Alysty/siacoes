@@ -30,19 +30,21 @@ public class DepartmentDAO {
 			
 			rs = stmt.executeQuery();
 			
-			if(rs.next()){
-				return this.loadObject(rs);
-			}else{
-				return null;
-			}
-		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
+			
 		}
+		if((rs != null) && !rs.isClosed())
+			rs.close();
+		if((stmt != null) && !stmt.isClosed())
+			stmt.close();
+		if((conn != null) && !conn.isClosed())
+			conn.close();
+
+		if(rs.next()){
+			return this.loadObject(rs);
+		}else{
+			return null;
+		}
+		
 	}
 	
 	public List<Department> listAll(boolean onlyActive) throws SQLException{
@@ -64,15 +66,16 @@ public class DepartmentDAO {
 				list.add(this.loadObject(rs));
 			}
 			
-			return list;
-		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
+			
 		}
+		if((rs != null) && !rs.isClosed())
+			rs.close();
+		if((stmt != null) && !stmt.isClosed())
+			stmt.close();
+		if((conn != null) && !conn.isClosed())
+			conn.close();
+		
+		return list;
 	}
 	
 	public List<Department> listByCampus(int idCampus, boolean onlyActive) throws SQLException{
@@ -94,15 +97,16 @@ public class DepartmentDAO {
 				list.add(this.loadObject(rs));
 			}
 			
-			return list;
-		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
+			
 		}
+		if((rs != null) && !rs.isClosed())
+			rs.close();
+		if((stmt != null) && !stmt.isClosed())
+			stmt.close();
+		if((conn != null) && !conn.isClosed())
+			conn.close();
+		
+		return list;
 	}
 	
 	public int save(int idUser, Department department) throws SQLException{
@@ -150,15 +154,16 @@ public class DepartmentDAO {
 				new UpdateEvent(conn).registerUpdate(idUser, department);
 			}
 			
-			return department.getIdDepartment();
-		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
+			
 		}
+		if((rs != null) && !rs.isClosed())
+			rs.close();
+		if((stmt != null) && !stmt.isClosed())
+			stmt.close();
+		if((conn != null) && !conn.isClosed())
+			conn.close();
+		
+		return department.getIdDepartment();
 	}
 	
 	private Department loadObject(ResultSet rs) throws SQLException{
