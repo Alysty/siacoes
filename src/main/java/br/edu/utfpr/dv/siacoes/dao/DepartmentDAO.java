@@ -13,7 +13,7 @@ import br.edu.utfpr.dv.siacoes.log.UpdateEvent;
 import br.edu.utfpr.dv.siacoes.model.Department;
 
 public class DepartmentDAO {
-
+	//
 	public Department findById(int id) throws SQLException{
 		Connection conn = null;
 		PreparedStatement stmt = null;
