@@ -20,6 +20,7 @@
                         
         
         <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
                         
         
         <property name="java-output-path" value="/siacoes/target/classes"/>
